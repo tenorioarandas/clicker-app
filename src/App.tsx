@@ -3,6 +3,7 @@ import { PiCursorClickLight } from "react-icons/pi";
 import { MdOutlineTimer } from "react-icons/md";
 import { HiMiniChartBar } from "react-icons/hi2";
 import { BiSolidTrophy } from "react-icons/bi";
+import { VscDebugRestart } from "react-icons/vsc";
 
 import "./App.css";
 
@@ -10,8 +11,8 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [timer, setTimer] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-
-  const rank = getRank();
+  const [record, setRecord] = useState(0);
+  const [showRestart, setShowRestart] = useState(false);
 
   const clickPerSecond = getCPS();
 
@@ -32,24 +33,44 @@ function App() {
     return () => clearInterval(interval);
   }, [gameStarted]);
 
+  useEffect(() => {
+    if (timer >= 5) {
+      setTimeout(() => {
+        setShowRestart(true);
+      }, 1000);
+    }
+  }, [timer]);
+
   function handleClick() {
     if (!gameStarted) {
       setGameStarted(true);
     }
 
     if (timer < 5) {
-      setCounter((prevCounter) => prevCounter + 1);
-    }
-  }
+      setCounter((prevCounter) => {
+        const newCounter = prevCounter + 1;
 
-  function getRank() {
-    return counter;
+        if (newCounter > record) {
+          setRecord(newCounter);
+        }
+
+        return newCounter;
+      });
+    }
   }
 
   function getCPS() {
     if (timer === 0) return 0;
 
     return (counter / timer).toFixed(1);
+  }
+
+  function restartGame() {
+    setCounter(0);
+    setTimer(0);
+    setGameStarted(false);
+
+    setShowRestart(false);
   }
 
   const seconds = Math.floor(timer);
@@ -71,28 +92,42 @@ function App() {
       </div>
       <h1>CONTADOR DE CLIQUES</h1>
       <p className="counter">{counter}</p>
-      <button onClick={handleClick} disabled={timer >= 5}>
-        <PiCursorClickLight size="1.5em" />
-        CLICAR
-      </button>
+
+      {timer < 5 && (
+        <button
+          className="btn btn-start"
+          onClick={handleClick}
+          disabled={timer >= 5}
+        >
+          <PiCursorClickLight size="1.5em" />
+          CLICAR
+        </button>
+      )}
+
+      {showRestart && (
+        <button className="btn btn-restart" onClick={restartGame}>
+          <VscDebugRestart size="1.5em" />
+          RECOMEÇAR
+        </button>
+      )}
 
       <div className="game-stats">
-        <div className="rank">
-          <div className="rank-left">
-            <p className="rank-icon">
-              <BiSolidTrophy />
+        <div className="record">
+          <div className="record-left">
+            <p className="record-icon">
+              <BiSolidTrophy size="4rem" />
             </p>
           </div>
-          <div className="rank-right">
-            <p className="rank-info">MELHOR PONTUAÇÃO</p>
-            <p className="rank-content">{rank}</p>
+          <div className="record-right">
+            <p className="record-info">MELHOR PONTUAÇÃO</p>
+            <p className="record-content">{record}</p>
           </div>
         </div>
 
         <div className="cps">
           <div className="cps-left">
             <p className="cps-icon">
-              <HiMiniChartBar />
+              <HiMiniChartBar size="4rem" />
             </p>
           </div>
           <div className="cps-right">

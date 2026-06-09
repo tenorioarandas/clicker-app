@@ -23,7 +23,7 @@ body {
       background: #0c1331;
       display: flex;
       justify-content: space-around;
-      width: 300px;
+      width: 320px;
       padding: 10px 5px;
       margin-bottom: 20px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -68,7 +68,7 @@ body {
       font-size: 18rem;
     }
 
-    button {
+    .btn {
       background: linear-gradient(
         90deg,
         rgba(85, 0, 255, 1) 0%,
@@ -88,12 +88,12 @@ body {
       transition: transform 0.1s ease;
     }
 
-    button:hover {
+    .btn:hover {
       cursor: pointer;
       transform: scale(1.03);
     }
 
-    button:active {
+    .btn:active {
       transform: scale(0.95);
     }
   }
@@ -105,7 +105,7 @@ body {
   width: 100%;
   margin-top: 2rem;
 
-  .rank {
+  .record {
     background: #0c1331;
     display: flex;
     align-items: center;
@@ -115,22 +115,21 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
 
-    .rank-left {
+    .record-left {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .rank-icon {
+      .record-icon {
         color: #ffd700;
-        font-size: 4rem;
       }
     }
 
-    .rank-right {
+    .record-right {
       display: flex;
       flex-direction: column;
 
-      .rank-info {
+      .record-info {
         color: #66739a;
         font-family: "Inter", sans-serif;
         font-size: 0.9rem;
@@ -138,7 +137,7 @@ body {
         letter-spacing: 1px;
       }
 
-      .rank-content {
+      .record-content {
         color: #ffd700;
         font-family: "Inter", sans-serif;
         font-size: 3rem;
@@ -165,7 +164,6 @@ body {
 
       .cps-icon {
         color: #3fa9ff;
-        font-size: 4rem;
       }
     }
 
