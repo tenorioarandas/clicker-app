@@ -14,12 +14,12 @@ body {
     align-items: center;
     flex-direction: column;
     width: 40vw;
-    height: 80vh;
+    height: 85vh;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
 
-    .box-timer {
+    .timer-box {
       background: #0c1331;
       display: flex;
       justify-content: space-around;
@@ -30,13 +30,13 @@ body {
       border-radius: 20px;
 
       p {
-        color: #4c5878;
+        color: #66739a;
         font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: bold;
       }
 
-      .flex-box {
+      .timer-content {
         display: flex;
         flex-direction: column;
 
@@ -48,7 +48,7 @@ body {
     }
 
     h1 {
-      color: #4c5878;
+      color: #66739a;
       font-family: "Inter", sans-serif;
       font-size: 20px;
     }
@@ -65,7 +65,7 @@ body {
       color: transparent;
       font-family: "Inter", sans-serif;
       font-weight: 500;
-      font-size: 300px;
+      font-size: 18rem;
     }
 
     button {
@@ -99,9 +99,95 @@ body {
   }
 }
 
-.rank {
-  color: white;
-  font-size: 2rem;
-  margin-top: 20px;
-  font-weight: bold;
+.game-stats {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 2rem;
+
+  .rank {
+    background: #0c1331;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 320px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    .rank-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .rank-icon {
+        color: #ffd700;
+        font-size: 4rem;
+      }
+    }
+
+    .rank-right {
+      display: flex;
+      flex-direction: column;
+
+      .rank-info {
+        color: #66739a;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .rank-content {
+        color: #ffd700;
+        font-family: "Inter", sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+    }
+  }
+
+  .cps {
+    background: #0c1331;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 320px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    .cps-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .cps-icon {
+        color: #3fa9ff;
+        font-size: 4rem;
+      }
+    }
+
+    .cps-right {
+      display: flex;
+      flex-direction: column;
+
+      .cps-info {
+        color: #66739a;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .cps-content {
+        color: #3fa9ff;
+        font-family: "Inter", sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+    }
+  }
 }

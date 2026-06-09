@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { PiCursorClickLight } from "react-icons/pi";
 import { MdOutlineTimer } from "react-icons/md";
+import { HiMiniChartBar } from "react-icons/hi2";
+import { BiSolidTrophy } from "react-icons/bi";
 
 import "./App.css";
 
@@ -41,14 +43,7 @@ function App() {
   }
 
   function getRank() {
-    if (counter < 10) return "🐢 Beginner";
-    if (counter < 20) return "🐇 Fast Clicker";
-    if (counter < 30) return "🐺 Wild Clicker";
-    if (counter < 40) return "🐆 Pro Clicker";
-    if (counter < 45) return "⚡ Lightning";
-    if (counter < 49) return "👹 Speed Demon";
-
-    return "👑 Click King";
+    return counter;
   }
 
   function getCPS() {
@@ -67,25 +62,44 @@ function App() {
 
   return (
     <section>
-      <div className="box-timer">
+      <div className="timer-box">
         <MdOutlineTimer color="#5500FF" size="5em" />
-        <div className="flex-box">
+        <div className="timer-content">
           <p>TEMPO RESTANTE:</p>
           <p className="timer">{formattedTimer}</p>
         </div>
       </div>
-
       <h1>CONTADOR DE CLIQUES</h1>
-
       <p className="counter">{counter}</p>
-
       <button onClick={handleClick} disabled={timer >= 5}>
         <PiCursorClickLight size="1.5em" />
         CLICAR
       </button>
-      <div className="rank">
-        <p>{rank}</p>
-        <p>{clickPerSecond}</p>
+
+      <div className="game-stats">
+        <div className="rank">
+          <div className="rank-left">
+            <p className="rank-icon">
+              <BiSolidTrophy />
+            </p>
+          </div>
+          <div className="rank-right">
+            <p className="rank-info">MELHOR PONTUAÇÃO</p>
+            <p className="rank-content">{rank}</p>
+          </div>
+        </div>
+
+        <div className="cps">
+          <div className="cps-left">
+            <p className="cps-icon">
+              <HiMiniChartBar />
+            </p>
+          </div>
+          <div className="cps-right">
+            <p className="cps-info">CLIQUES POR SEGUNDO</p>
+            <p className="cps-content">{clickPerSecond}</p>
+          </div>
+        </div>
       </div>
     </section>
   );
