@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PiCursorClickLight } from "react-icons/pi";
+import { PiCursorClickBold } from "react-icons/pi";
 import { MdOutlineTimer } from "react-icons/md";
 import { HiMiniChartBar } from "react-icons/hi2";
 import { BiSolidTrophy } from "react-icons/bi";
@@ -23,6 +23,7 @@ function App() {
       setTimer((prevTimer) => {
         if (prevTimer >= 5) {
           clearInterval(interval);
+          setShowRestart(true);
           return 5;
         }
 
@@ -32,14 +33,6 @@ function App() {
 
     return () => clearInterval(interval);
   }, [gameStarted]);
-
-  useEffect(() => {
-    if (timer >= 5) {
-      setTimeout(() => {
-        setShowRestart(true);
-      }, 1000);
-    }
-  }, [timer]);
 
   function handleClick() {
     if (!gameStarted) {
@@ -69,7 +62,6 @@ function App() {
     setCounter(0);
     setTimer(0);
     setGameStarted(false);
-
     setShowRestart(false);
   }
 
@@ -84,7 +76,7 @@ function App() {
   return (
     <section>
       <div className="timer-box">
-        <MdOutlineTimer color="#5500FF" size="5em" />
+        <MdOutlineTimer color="#7b00ff" size="5em" />
         <div className="timer-content">
           <p>TEMPO RESTANTE:</p>
           <p className="timer">{formattedTimer}</p>
@@ -93,21 +85,19 @@ function App() {
       <h1>CONTADOR DE CLIQUES</h1>
       <p className="counter">{counter}</p>
 
-      {timer < 5 && (
-        <button
-          className="btn btn-start"
-          onClick={handleClick}
-          disabled={timer >= 5}
-        >
-          <PiCursorClickLight size="1.5em" />
-          CLICAR
-        </button>
-      )}
+      <button
+        className="btn btn-start"
+        onClick={handleClick}
+        disabled={timer >= 5}
+      >
+        <PiCursorClickBold size="1.5em" />
+        CLICAR
+      </button>
 
       {showRestart && (
-        <button className="btn btn-restart" onClick={restartGame}>
-          <VscDebugRestart size="1.5em" />
-          RECOMEÇAR
+        <button className="btn-restart" onClick={restartGame}>
+          <VscDebugRestart size="10em" />
+          <span>CLIQUE AQUI PARA RECOMEÇAR</span>
         </button>
       )}
 
