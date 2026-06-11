@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# ⚡ Clicker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um jogo de velocidade feito em React onde o objetivo é clicar o máximo possível antes do tempo acabar.
 
-Currently, two official plugins are available:
+![preview](./src/assets/clicker-preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS
+- React Icons
+- Vite
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎮 Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Sistema de contador de cliques
+- Timer em tempo real
+- Cálculo de CPS (Clicks Per Second)
+- Sistema de recorde
+- Tela de reinício animada
+- Interface moderna com neon/glow
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Instalação
+
+Clone o projeto:
+
+```bash
+git clone https://github.com/seuusuario/clicker-app.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Entre na pasta:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd clicker-app
 ```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📸 Preview
+
+O projeto possui:
+
+- UI neon futurista
+- Gradientes modernos
+- Glassmorphism
+- Animações suaves
+- Efeitos de hover e blur
+
+---
+
+## 📁 Estrutura
+
+```bash
+src/
+ ├── assets/
+ ├── components/
+ ├── App.jsx
+ ├── App.css
+ └── main.jsx
+```
+
+---
+
+## ✨ Futuras melhorias
+
+- Sistema de contas
+- Sons e efeitos
+- Mobile version
+- Diferentes dificuldades
+
+---
+
+## 👨‍💻 Autor
+
+Feito por Gabriel Tenório.

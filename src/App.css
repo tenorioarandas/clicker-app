@@ -111,8 +111,6 @@ body {
     .btn-restart {
       color: #fff;
       background: rgba(11, 16, 38, 0.35);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: center;
